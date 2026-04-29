@@ -10,6 +10,7 @@ Forward reusable GitHub Actions workflows.
 - Commands: [`src/Command/`](src/Command/)
 - GitHub Actions IO helpers: [`src/GitHub/`](src/GitHub/)
 - Project detection logic: [`src/Project/`](src/Project/)
+- PHP version resolution logic: [`src/Project/`](src/Project/)
 - Tests: [`tests/`](tests/)
 - Docs: [`docs/`](docs/)
 - Release history: [`CHANGELOG.md`](CHANGELOG.md)

@@ -20,10 +20,12 @@ namespace FastForward\GitHubActions\Console;
 
 use FastForward\GitHubActions\Command\ChangelogResolveMergedVersionCommand;
 use FastForward\GitHubActions\Command\PhpDetectProjectCommand;
+use FastForward\GitHubActions\Command\PhpResolveVersionCommand;
 use FastForward\GitHubActions\Command\SummaryWriteCommand;
 use FastForward\GitHubActions\GitHub\GitHubOutputWriter;
 use FastForward\GitHubActions\GitHub\StepSummaryWriter;
 use FastForward\GitHubActions\Project\ProjectSurfaceDetector;
+use FastForward\GitHubActions\Project\PhpVersionResolver;
 use Symfony\Component\Console\Application;
 
 final class ConsoleApplicationFactory
@@ -39,6 +41,7 @@ final class ConsoleApplicationFactory
 
         $application->addCommand(new ChangelogResolveMergedVersionCommand($githubOutputWriter));
         $application->addCommand(new PhpDetectProjectCommand(new ProjectSurfaceDetector(), $githubOutputWriter));
+        $application->addCommand(new PhpResolveVersionCommand(new PhpVersionResolver(), $githubOutputWriter));
         $application->addCommand(new SummaryWriteCommand(new StepSummaryWriter()));
 
         return $application;

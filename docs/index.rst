@@ -26,6 +26,7 @@ Initial Commands
 
 .. code-block:: bash
 
+   fast-forward-actions php:resolve-version --github-output
    fast-forward-actions php:detect-project --github-output
    fast-forward-actions changelog:resolve-merged-version release/v0.1.0 --github-output
    fast-forward-actions summary:write "## Workflow Summary"
