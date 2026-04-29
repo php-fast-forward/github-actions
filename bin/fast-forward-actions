@@ -1,0 +1,37 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * Symfony Console runtime for Fast Forward shared GitHub Actions automation.
+ *
+ * This file is part of fast-forward/github-actions project.
+ *
+ * @author   Felipe Sayao Lobato Abreu <github@mentordosnerds.com>
+ * @license  https://opensource.org/licenses/MIT MIT License
+ *
+ * @see      https://github.com/php-fast-forward/github-actions
+ * @see      https://github.com/php-fast-forward/github-actions/issues
+ * @see      https://php-fast-forward.github.io/github-actions/
+ * @see      https://datatracker.ietf.org/doc/html/rfc2119
+ */
+
+use FastForward\GitHubActions\Console\ConsoleApplicationFactory;
+
+$autoloadCandidates = [
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/../../../autoload.php',
+];
+
+foreach ($autoloadCandidates as $autoloadCandidate) {
+    if (is_file($autoloadCandidate)) {
+        require $autoloadCandidate;
+
+        exit(ConsoleApplicationFactory::create()->run());
+    }
+}
+
+fwrite(STDERR, "Could not locate Composer autoload.php for fast-forward/github-actions.\n");
+
+exit(1);
