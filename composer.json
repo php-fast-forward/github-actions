@@ -1,0 +1,89 @@
+{
+    "name": "fast-forward/github-actions",
+    "description": "Symfony Console runtime for Fast Forward shared GitHub Actions automation.",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "automation",
+        "cli",
+        "fast-forward",
+        "github-actions",
+        "symfony-console"
+    ],
+    "readme": "README.md",
+    "authors": [
+        {
+            "name": "Felipe Sayao Lobato Abreu",
+            "email": "github@mentordosnerds.com",
+            "homepage": "https://github.com/coisa",
+            "role": "Maintainer"
+        }
+    ],
+    "homepage": "https://github.com/php-fast-forward/github-actions",
+    "support": {
+        "issues": "https://github.com/php-fast-forward/github-actions/issues",
+        "wiki": "https://github.com/php-fast-forward/github-actions/wiki",
+        "source": "https://github.com/php-fast-forward/github-actions",
+        "docs": "https://php-fast-forward.github.io/github-actions/"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/php-fast-forward"
+        },
+        {
+            "type": "custom",
+            "url": "https://www.paypal.com/donate/?business=JLDAF45XZ8D84"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "fast-forward/dev-tools": "^1.24",
+        "symfony/console": "^7.3 || ^8.0",
+        "symfony/filesystem": "^7.3 || ^8.0",
+        "thecodingmachine/safe": "^3.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.0 || ^13.0"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "FastForward\\GitHubActions\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FastForward\\GitHubActions\\Tests\\": "tests/"
+        }
+    },
+    "bin": [
+        "bin/fast-forward-actions"
+    ],
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "fast-forward/dev-tools": false,
+            "phpdocumentor/shim": true,
+            "phpro/grumphp-shim": true,
+            "pyrech/composer-changelogs": true
+        },
+        "platform": {
+            "php": "8.3.0"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        },
+        "grumphp": {
+            "config-default-path": "vendor/fast-forward/dev-tools/grumphp.yml"
+        }
+    },
+    "scripts": {
+        "dev-tools": "dev-tools",
+        "dev-tools:fix": "@dev-tools --fix",
+        "test": "phpunit"
+    }
+}
