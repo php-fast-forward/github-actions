@@ -19,6 +19,19 @@ declare(strict_types=1);
 
 use FastForward\GitHubActions\Console\ConsoleApplicationFactory;
 
-require __DIR__ . '/../vendor/autoload.php';
+$autoloadCandidates = [
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/../../../autoload.php',
+];
 
-exit(ConsoleApplicationFactory::create()->run());
+foreach ($autoloadCandidates as $autoloadCandidate) {
+    if (is_file($autoloadCandidate)) {
+        require $autoloadCandidate;
+
+        exit(ConsoleApplicationFactory::create()->run());
+    }
+}
+
+fwrite(STDERR, "Could not locate Composer autoload.php for fast-forward/github-actions.\n");
+
+exit(1);
