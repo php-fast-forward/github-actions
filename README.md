@@ -1,6 +1,6 @@
 # github-actions
 
 <p align="center">
-  <img src="assets/brand/dash.png" alt="Dash, the PHP Fast Forward fox, wearing a purple hoodie" width="320">
+  <img src="docs/_static/mascot-banner.png" alt="Dash composing reusable PHP automation steps" width="840">
 </p>
 Symfony Console runtime for Fast Forward shared GitHub Actions automation.
